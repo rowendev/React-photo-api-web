@@ -1,0 +1,36 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
+    padding: 0 5%;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); */
+    z-index: 10;
+  }
+
+a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: 200;
+    
+}
+a:hover{
+  color: rgb(0, 149, 255);
+}
+
+.navicon{
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+.navicon:hover{
+  color: rgb(0, 149, 255);
+}
