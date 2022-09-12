@@ -6,7 +6,7 @@
     height: 3rem;
     background-color: rgb(195, 195, 195);
     color: white;
-    position:absolute;
-    bottom: 0;
-    left: 0;
+    left:0;
+    bottom:0;
+    right:0;
 }

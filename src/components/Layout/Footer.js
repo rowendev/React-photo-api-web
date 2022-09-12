@@ -12,7 +12,7 @@ const Footer = () => {
       >
         Rowen
       </Link>
-      , copyright 2022
+      , copyright 2022 ™
     </footer>
   );
 };
