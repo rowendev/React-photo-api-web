@@ -10,7 +10,7 @@ import "./App.css";
 import React, { useState, createContext } from "react";
 // import { createClient } from "pexels";
 
-export const ThemeContext = createContext(null);
+export const ThemeContext = createContext();
 
 function App() {
   const [theme, setTheme] = useState("light");
