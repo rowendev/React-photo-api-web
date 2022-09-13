@@ -1,19 +1,36 @@
+import React, { useState, useEffect, createContext } from "react";
+import { Routes, Route } from "react-router-dom";
+import axios from "axios";
+import Picture from "./components/Picture";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Nav from "./components/Layout/Nav";
 import Footer from "./components/Layout/Footer";
-import Homepage from "./pages/Homepage";
-import About from "./pages/About";
-import Card from "./components/UI/Card";
-import { Routes, Route } from "react-router-dom";
-import ReactSwitch from "react-switch";
-import "./App.css";
-
-import React, { useState, createContext } from "react";
-// import { createClient } from "pexels";
-
 export const ThemeContext = createContext();
 
 function App() {
   const [theme, setTheme] = useState("light");
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  // api key
+  const ACCESS_KEY = "UE8u2HhonCOZPiAjlRv5hwGZTN1ZsKBjhEx40a-opgU";
+  const url = `https://api.unsplash.com/photos/?client_id=${ACCESS_KEY}&page=${page}&per_page=12`;
+
+  useEffect(() => {
+    fetchData(url);
+  }, []);
+
+  const fetchData = (searchingURL) => {
+    axios.get(searchingURL).then((res) => {
+      setData(data.concat(res.data));
+    });
+  };
+
+  const loadMore = () => {
+    setPage(page + 1);
+    let newURL = `https://api.unsplash.com/photos/?client_id=${ACCESS_KEY}&page=${page}&per_page=16`;
+    fetchData(newURL);
+  };
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
@@ -21,33 +38,36 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id={theme}>
-        <div className="aaa">
-          <Nav themeValue={theme} />
-          <main>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route
-                path="about"
-                element={
-                  <Card>
-                    <About />
-                  </Card>
-                }
-              />
-            </Routes>
-          </main>
-        </div>
-        <label
-          style={{
-            color: `${theme === "dark" ? "white" : "black"}`,
-          }}
-        >
-          {theme === "light" ? "Light Mode" : "Dark Mode"}
-        </label>
-        <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
-        <Footer />
-      </div>
+      <Nav />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="app">
+              <div className="search">
+                <input type="text" placeholder="Picture Type" />
+              </div>
+              <div className="pictures">
+                {data &&
+                  data.map((eachArray) => (
+                    <Picture
+                      key={eachArray.id}
+                      author={eachArray.user.name}
+                      url={eachArray.urls.thumb}
+                      downloadLink={eachArray.links.download}
+                    />
+                  ))}
+              </div>
+              <div className="load-more">
+                <button onClick={loadMore}>Load More</button>
+              </div>{" "}
+            </div>
+          }
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
     </ThemeContext.Provider>
   );
 }

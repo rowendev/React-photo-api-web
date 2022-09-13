@@ -1,20 +1,181 @@
-html {
-  height: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Source+Sans+Pro:ital@1&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
-  font-family: 'Noto Sans TC', sans-serif;
-  min-height: 100%;
+  font-family: 'Source Sans Pro', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root header {
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); */
+  z-index: 10;
+}
+
+.link a{
+  margin: 0 1rem;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-family: 'Noto Sans TC';
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+.link a:hover{
+  color: rgb(0, 149, 255);
+  text-decoration: underline;
+}
+
+#root .about{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem 1rem 20rem 1rem;
+  color: rgb(0, 0, 0);
+  font-family: 'Noto Sans TC';
+  font-size: 1rem;
+  font-weight: 200;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.about p{
+  text-align: center;
+  margin: 3rem;
 }
-
-#root {
+.about p a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.about p a:hover {
+  color: rgb(0, 149, 255);
+  text-decoration: underline;
+}
+#root .contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem 1rem 20rem 1rem;
+  color: rgb(0, 0, 0);
+  font-family: 'Noto Sans TC';
+  font-size: 1rem;
+  font-weight: 200;
+}
+.contact p{
+  text-align: center;
+  margin: 3rem;
+}
+.app {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  color: white;
+}
+.app:before {
+  content: '';
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.app .search {
+  text-align: center;
+  padding: 1rem;
+}
+.app input {
+  text-align: center;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(79, 79, 79, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgb(0, 0, 0);
+}
+
+
+::placeholder {
+  color: rgb(52, 52, 52);
+}
+
+.pictures {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.pictures a{
+  font-size: 0.5rem;
+  color: rgb(52, 52, 52);
+}
+.picture {
+  padding: 1rem;
+  width: 200px;
+}
+.picture p {
+  color: black;
+}
+.picture .picture-container {
+  border-radius: 5px;
+  overflow: hidden;
+  height: 30vh;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.picture-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+.picture-container img:hover {
+  transform: scale(1.05);
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+}
+.load-more button {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  text-align: center;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  cursor: pointer; 
+}
+
+#root footer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  background-color: rgb(195, 195, 195);
+  color: rgb(0, 0, 0);
+  font-family: 'Noto Sans TC';
+  font-size: 0.75rem;
+  left:0;
+  bottom:0;
+  right:0;
 }

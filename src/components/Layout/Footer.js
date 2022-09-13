@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import classes from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <footer className={classes.footer}>
+    <footer>
       Created by
       <Link
-        to="/about"
+        to="/contact"
         style={{ margin: "0 0.3rem", textDecoration: "underline" }}
       >
         Rowen
