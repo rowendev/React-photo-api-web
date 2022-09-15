@@ -1,11 +1,20 @@
 import React, { useState, useEffect, createContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
-import Picture from "./components/Picture";
+// pages
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
+import Exercise from "./pages/Exercise";
+// components
 import Nav from "./components/Layout/Nav";
+import Picture from "./components/Picture";
 import Footer from "./components/Layout/Footer";
+// mui
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
+
 export const ThemeContext = createContext();
 
 function App() {
@@ -18,7 +27,7 @@ function App() {
 
   useEffect(() => {
     fetchData(url);
-  }, []);
+  }, [url]);
 
   const fetchData = (searchingURL) => {
     axios.get(searchingURL).then((res) => {
@@ -39,33 +48,48 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <Nav />
+
       <Routes>
         <Route
           path="/"
           element={
             <div className="app">
-              <div className="search">
+              {/* <div className="search">
                 <input type="text" placeholder="Picture Type" />
-              </div>
+              </div> */}
               <div className="pictures">
                 {data &&
                   data.map((eachArray) => (
                     <Picture
-                      key={eachArray.id}
+                      key={Math.random()}
                       author={eachArray.user.name}
                       url={eachArray.urls.thumb}
                       downloadLink={eachArray.links.download}
                     />
                   ))}
               </div>
-              <div className="load-more">
+              {/* <div className="load-more">
                 <button onClick={loadMore}>Load More</button>
-              </div>{" "}
+              </div> */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "1.5rem",
+                }}
+              >
+                <Button variant="contained" onClick={loadMore}>
+                  Load More
+                </Button>
+              </div>
             </div>
           }
         />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/exercise" element={<Exercise />} />
       </Routes>
       <Footer />
     </ThemeContext.Provider>

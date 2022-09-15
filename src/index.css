@@ -170,9 +170,10 @@ body {
   width: 100%;
   align-items: center;
   justify-content: center;
-  height: 3rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   background-color: rgb(195, 195, 195);
   color: rgb(0, 0, 0);
+  border: 1px solid rgba(79, 79, 79, 0.8);
   font-family: 'Noto Sans TC';
   font-size: 0.75rem;
   left:0;

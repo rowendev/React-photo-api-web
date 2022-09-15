@@ -1,16 +1,4 @@
-.header {
-    top: 0;
-    left: 0;
-    width: 100%;
-    color: rgb(0, 0, 0);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: auto;
-    margin-left: auto;
-    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); */
-    z-index: 10;
-  }
+
 .dark a {
   color: white;
 }

@@ -5,7 +5,7 @@ const Picture = (props) => {
     <div className="picture">
       <p>{props.author}</p>
       <div className="picture-container">
-        <a target="_blank" href={props.downloadLink}>
+        <a target="_blank" href={props.downloadLink} rel="noreferrer">
           <img src={props.url} alt="" />
         </a>
       </div>
