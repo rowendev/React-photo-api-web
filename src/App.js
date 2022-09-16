@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Exercise from "./pages/Exercise";
+import PictureCard from "./components/PictureCard";
 // components
 import Nav from "./components/Layout/Nav";
 import Picture from "./components/Picture";
@@ -60,11 +61,19 @@ function App() {
               <div className="pictures">
                 {data &&
                   data.map((eachArray) => (
-                    <Picture
+                    // <Picture
+                    //   key={Math.random()}
+                    //   author={eachArray.user.name}
+                    //   url={eachArray.urls.thumb}
+                    //   downloadLink={eachArray.links.download}
+                    // />
+                    <PictureCard
                       key={Math.random()}
                       author={eachArray.user.name}
                       url={eachArray.urls.thumb}
                       downloadLink={eachArray.links.download}
+                      authorThumb={eachArray.user.profile_image.medium}
+                      time={eachArray.created_at}
                     />
                   ))}
               </div>

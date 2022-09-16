@@ -1,4 +1,5 @@
 import React from "react";
+import PictureCard from "./PictureCard";
 
 const Picture = (props) => {
   return (
@@ -8,6 +9,7 @@ const Picture = (props) => {
         <a target="_blank" href={props.downloadLink} rel="noreferrer">
           <img src={props.url} alt="" />
         </a>
+        <PictureCard />
       </div>
     </div>
   );
