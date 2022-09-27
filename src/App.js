@@ -23,7 +23,7 @@ function App() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   // api key
-  const ACCESS_KEY = "UE8u2HhonCOZPiAjlRv5hwGZTN1ZsKBjhEx40a-opgU";
+  const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY;
   const url = `https://api.unsplash.com/photos/?client_id=${ACCESS_KEY}&page=${page}&per_page=12`;
 
   useEffect(() => {
