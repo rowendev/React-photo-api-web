@@ -16,10 +16,10 @@ const Nav = (props) => {
           <Link to="/">首頁</Link>
           <Link to="/about">關於</Link>
           <Link to="/contact">聯絡作者</Link>
-          <Link to="/exercise">Material UI 練習</Link>
+          {/* <Link to="/exercise">Material UI 練習</Link> */}
           {/* <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />*/}
         </div>
-        <Button
+        {/* <Button
           variant="contained"
           onClick={() => {
             alert("clicked");
@@ -27,7 +27,7 @@ const Nav = (props) => {
           size="small"
         >
           登入
-        </Button>
+        </Button> */}
       </Stack>
     </header>
   );
